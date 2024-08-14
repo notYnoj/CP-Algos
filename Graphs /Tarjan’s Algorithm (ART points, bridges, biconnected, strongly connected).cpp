@@ -66,5 +66,9 @@ void Tarjan(int u, int p = -1 /*the usual u and p,*/ vector<pair<int,int>>& brid
   
   }
 
+//Biconnected just run the top articulation point one and just ensure its all false :p 
+
+
+//SCC coming soon but for now I sleep :D
 
 
