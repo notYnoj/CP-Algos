@@ -18,6 +18,7 @@ void Tarjan(int u, int p = -1 //the usual u and p, vector<int>& art //stores art
   visited[u] = true;
   disc[u] = low[u] = ++time;
   for(auto i: grid[u]){
+    if(i==p)continue;
     if(!visted[v]){
       children++;
       Tarjan(i, u, art);
@@ -46,11 +47,13 @@ void Tarjan(int u, int p = -1 /*the usual u and p,*/ vector<pair<int,int>>& brid
   visited[u] = true;
   disc[u] = low[u] = ++time;
   for(auto i: grid[u]){
+        if(i==p)continue;
+
     if(!visted[v]){
       children++;
       Tarjan(i, u, art);
       low[u] = min(low[u], low[v]); //making lowest possible
-      if(parent != -1 && low[v]>=disc[u]){
+      if(parent != -1 && low[v]>disc[u]){
         bridge.push_back({u,v});
       }
     }else if(v!=parent){
