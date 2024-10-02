@@ -15,7 +15,15 @@ ll modInverse(ll a, ll m) {
         x += m0;
     return x;
 }
-
+ll modInverse(ll a, ll mod) {
+    ll result = 1, power = mod - 2;
+    while (power) {
+        if (power & 1) result = result * a % mod;
+        a = a * a % mod;
+        power >>= 1;
+    }
+    return result;
+} //another one
 //basically it does mod stuff :D (since division isnt good wiht mods you instead multiply by mod inverse
 /*
 Ira and Flamenco 1700 - 2 pointers+Combo
